@@ -1,6 +1,6 @@
 class SessionsController < ApplicationController
 
-  before_action :guest, only: [:new, :create]
+  skip_before_action :authorize, only: [:new, :create]
 
   def new
   end
@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    session.delete :user_id
+    session.destroy
     redirect_to :root
   end
 
