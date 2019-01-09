@@ -1,69 +1,72 @@
-<h2 class="title is-2">Sign up for free</h2>
+<div class="container">
+  <h2 class="title is-2">Sign up for free</h2>
 
 
-<% if @user.errors.any? %>
-<div class="notification is-danger">
+  <% if @user.errors.any? %>
+  <div class="notification is-danger">
     Error(s) found:
     <ul>
-        <% @user.errors.full_messages.each do |message| %>
-        <li>
-            <%= message %>
-        </li>
-        <% end %>
+      <% @user.errors.full_messages.each do |message| %>
+      <li>
+        <%= message %>
+      </li>
+      <% end %>
     </ul>
-</div>
-<% end %>
-<% flash.each do |key,value| %>
-<div class="notification is-<%= key %>">
+  </div>
+  <% end %>
+  <% flash.each do |key,value| %>
+  <div class="notification is-<%= key %>">
     <%= value %>
-</div>
-<% end %>
+  </div>
+  <% end %>
 
 
 
-<%= form_for @user do |f|%>
+  <%= form_for @user do |f|%>
 
-<div class="field">
+  <div class="field">
     <label class="label">Username</label>
     <div class="control has-icons-left has-icons-right">
-        <%= f.text_field :name, {class: 'input', placeholder: 'Name'} %>
-        <span class="icon is-small is-left">
-            <i class="fas fa-user"></i>
-        </span>
+      <%= f.text_field :name, {class: 'input', placeholder: 'Name'} %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-user"></i>
+      </span>
     </div>
 
-</div>
-
-<div class="field">
-  <label class="label">Email</label>
-  <div class="control has-icons-left has-icons-right">
-    <%= f.email_field :email, {class: 'input', placeholder: 'Email'} %>
-    <span class="icon is-small is-left">
-      <i class="fas fa-envelope"></i>
-    </span>
   </div>
-</div>
 
-<div class="field">
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <%= f.email_field :email, {class: 'input', placeholder: 'Email'} %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
     <label class="label">Confirm password</label>
-  <p class="control has-icons-left">
-    <%= f.password_field :password, {class: 'input', placeholder: ' password'} %>
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
-</div>
+    <p class="control has-icons-left">
+      <%= f.password_field :password, {class: 'input', placeholder: ' password'} %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
 
-<div class="field">
+  <div class="field">
     <label class="label">Confirm password</label>
-  <p class="control has-icons-left">
-    <%= f.password_field :password_confirmation, {class: 'input', placeholder: 'Confirmation password'} %>
-    <span class="icon is-small is-left">
-      <i class="fas fa-lock"></i>
-    </span>
-  </p>
+    <p class="control has-icons-left">
+      <%= f.password_field :password_confirmation, {class: 'input', placeholder: 'Confirmation password'} %>
+      <span class="icon is-small is-left">
+        <i class="fas fa-lock"></i>
+      </span>
+    </p>
+  </div>
+
+  <button class="button is-success" type="submit">Sign up</button>
+
+  <% end %>
+
 </div>
-
-<button class="button is-success" type="submit">Sign up</button>
-
-<% end %>

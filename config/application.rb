@@ -17,7 +17,8 @@ module Petsy
     # the framework and any gems in your application.
 
     config.generators do |g|
-      g.scaffold_stylesheet false
+      g.assets false
+      g.helper false
     end
   end
 end

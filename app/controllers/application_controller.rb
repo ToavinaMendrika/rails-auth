@@ -11,6 +11,6 @@ class ApplicationController < ActionController::Base
     end
 
     def guest
-        redirect_to :home if !current_user.nil?
+        redirect_back fallback_location: home_path if !current_user.nil?
     end
 end
